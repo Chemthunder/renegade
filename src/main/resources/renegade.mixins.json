@@ -1,0 +1,22 @@
+{
+  "required": true,
+  "package": "com.peak.renegade.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "ArgumentTypesMixin",
+    "ItemMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  },
+  "client": [
+    "client.BarMixin",
+    "client.ExperienceBarMixin",
+    "client.InGameHudMixin",
+    "client.MinecraftClientMixin",
+    "client.TooltipBackgroundRendererMixin"
+  ]
+}

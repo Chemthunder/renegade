@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "renegade",
+  "version": "${version}",
+  "name": "Renegade",
+  "description": "RUN FOR THE FUTURE, CRY FOR THE PAST.",
+  "authors": [
+    "Chemthunder"
+  ],
+  "license": "CC0-1.0",
+  "icon": "assets/renegade/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.peak.renegade.core.Renegade"
+    ],
+    "client": [
+      "com.peak.renegade.core.RenegadeClient"
+    ],
+    "fabric-datagen": [
+      "com.peak.renegade.datagen.RenegadeDataGen"
+    ],
+    "cardinal-components": [
+      "com.peak.renegade.core.cca.RenegadeCCA"
+    ]
+  },
+  "mixins": [
+    "renegade.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.15.11",
+    "minecraft": "~1.21.11",
+    "java": ">=21",
+    "fabric-api": "*"
+  },
+
+  "custom": {
+    "cardinal-components": [
+      "renegade:player",
+      "renegade:world"
+    ]
+  }
+}
