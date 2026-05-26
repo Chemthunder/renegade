@@ -1,12 +1,14 @@
 package com.peak.renegade.core.cca.core;
 
-import com.peak.renegade.api.game.GameScene;
+import com.peak.renegade.api.game.scene.ClientScene;
+import com.peak.renegade.api.game.scene.GameScene;
 import com.peak.renegade.api.game.level.GameLayer;
 import com.peak.renegade.api.game.level.GameLevel;
 import com.peak.renegade.core.Renegade;
 import com.peak.renegade.game.index.GameLayers;
 import com.peak.renegade.game.index.GameLevels;
 import net.acoyt.acornlib.api.util.MiscUtils;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.storage.ReadView;
 import net.minecraft.storage.WriteView;
 import net.minecraft.world.World;
@@ -84,5 +86,16 @@ public class WorldInstance implements AutoSyncedComponent {
     public void setCurrentLevel(@Nullable GameLevel currentLevel) {
         this.currentLevel = currentLevel;
         this.sync();
+    }
+
+    public void loadMap(PlayerEntity target, GameLayer layer, GameLevel level) {
+        HudInstance client = HudInstance.getInstance(target);
+
+        this.setCurrentLayer(layer);
+        this.setCurrentLevel(level);
+
+        client.setScene(ClientScene.LEVEL_ANNOUNCE);
+        client.setTickStatus(true);
+        client.setAge(0);
     }
 }

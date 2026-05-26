@@ -1,4 +1,4 @@
-package com.peak.renegade.api.game;
+package com.peak.renegade.api.game.scene;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.util.StringIdentifiable;
@@ -20,6 +20,6 @@ public enum GameScene implements StringIdentifiable {
     }
 
     public String asString() {
-        return "";
+        return this.id;
     }
 }

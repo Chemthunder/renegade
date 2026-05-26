@@ -43,7 +43,7 @@ public class LevelStringReader {
         final MutableObject<RegistryEntry<GameLevel>> mutableObject = new MutableObject<>();
 
         this.consume(reader, new LevelStringReader.Callbacks() {
-            public void onGameLevel(RegistryEntry<GameLevel> item) {
+            public void onLevel(RegistryEntry<GameLevel> item) {
                 mutableObject.setValue(item);
             }
         });
@@ -77,7 +77,7 @@ public class LevelStringReader {
     }
 
     public interface Callbacks {
-        default void onLayer(RegistryEntry<GameLevel> item) {}
+        default void onLevel(RegistryEntry<GameLevel> item) {}
 
         default void setSuggester(Function<SuggestionsBuilder, CompletableFuture<Suggestions>> suggester) {}
     }
@@ -106,7 +106,7 @@ public class LevelStringReader {
             int i = this.reader.getCursor();
             Identifier identifier = Identifier.fromCommandInput(this.reader);
 
-            this.callbacks.onLayer(LevelStringReader.this.eventRegistry.getOptional(RegistryKey.of(RenegadeRegistries.levelKey, identifier)).orElseThrow(() -> {
+            this.callbacks.onLevel(LevelStringReader.this.eventRegistry.getOptional(RegistryKey.of(RenegadeRegistries.levelKey, identifier)).orElseThrow(() -> {
                 this.reader.setCursor(i);
                 return LevelStringReader.INVALID_EVENT_ID_EXCEPTION.createWithContext(this.reader, identifier);
             }));

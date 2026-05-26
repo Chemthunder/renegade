@@ -1,5 +1,7 @@
-package com.peak.renegade.datagen.provider.resources;
+package com.peak.renegade.data.provider.resources;
 
+import com.peak.renegade.game.GameInit;
+import com.peak.renegade.game.index.GameItems;
 import com.peak.renegade.game.index.GameLayers;
 import com.peak.renegade.game.index.GameLevels;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -21,8 +23,17 @@ public class RenegadeLangGen extends FabricLanguageProvider {
         GameLevels.pairWithLang(translationBuilder);
         GameLayers.pairWithLang(translationBuilder);
 
+        GameItems.ITEMS.registerLang(wrapperLookup, translationBuilder);
+
         translationBuilder.add("feedback.renegade.layer", "Current layer is %s");
         translationBuilder.add("feedback.renegade.level", "Current level is %s");
+
+        translationBuilder.add("renegade.lvlannounce.spacer", " : // : ");
+        translationBuilder.add("renegade.lvlannounce.clock", "YOUR CLOCK STARTS NOW");
+
+        translationBuilder.add("renegade.slogan.0", "RUN FOR THE FUTURE");
+        translationBuilder.add("renegade.slogan.1", "FORSAKE THE CONGLOMERATE");
+        translationBuilder.add("renegade.slogan.2", "EMBRACE THE ANALOG");
     }
 
     public @NotNull String getName() {

@@ -1,5 +1,6 @@
 package com.peak.renegade.core;
 
+import com.peak.renegade.core.client.event.CountdownEvent;
 import com.peak.renegade.core.client.event.LevelAnnouncementTextEvent;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
@@ -23,9 +24,15 @@ public class RenegadeClient implements ClientModInitializer {
         LOGGER.info("Init completed.");
 
         HudElementRegistry.attachElementAfter(
-                VanillaHudElements.INFO_BAR,
+                VanillaHudElements.HOTBAR,
                 Renegade.id("level_announcement_text"),
                 new LevelAnnouncementTextEvent()
+        );
+
+        HudElementRegistry.attachElementAfter(
+                VanillaHudElements.HOTBAR,
+                Renegade.id("countdown"),
+                new CountdownEvent()
         );
     }
 

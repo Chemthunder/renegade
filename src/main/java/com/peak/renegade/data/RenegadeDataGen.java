@@ -1,8 +1,9 @@
-package com.peak.renegade.datagen;
+package com.peak.renegade.data;
 
 import com.peak.omnia.api.registration.DataInitializer;
 import com.peak.renegade.core.Renegade;
-import com.peak.renegade.datagen.provider.resources.RenegadeLangGen;
+import com.peak.renegade.data.provider.resources.RenegadeLangGen;
+import com.peak.renegade.data.provider.resources.RenegadeModelGen;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.registry.RegistryBuilder;
@@ -18,6 +19,7 @@ public class RenegadeDataGen implements DataGeneratorEntrypoint {
         var pack = fdg.createPack();
 
         pack.addProvider(RenegadeLangGen::new);
+        pack.addProvider(RenegadeModelGen::new);
 	}
 
     public void buildRegistry(RegistryBuilder registryBuilder) {

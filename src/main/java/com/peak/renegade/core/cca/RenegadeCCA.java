@@ -1,5 +1,6 @@
 package com.peak.renegade.core.cca;
 
+import com.peak.renegade.core.cca.core.HudInstance;
 import com.peak.renegade.core.cca.core.PlayerInstance;
 import com.peak.renegade.core.cca.core.WorldInstance;
 import org.ladysnake.cca.api.v3.entity.EntityComponentFactoryRegistry;
@@ -16,6 +17,12 @@ public class RenegadeCCA implements EntityComponentInitializer, WorldComponentIn
         registry.registerForPlayers(
                 PlayerInstance.KEY,
                 PlayerInstance::new,
+                RespawnCopyStrategy.ALWAYS_COPY
+        );
+
+        registry.registerForPlayers(
+                HudInstance.KEY,
+                HudInstance::new,
                 RespawnCopyStrategy.ALWAYS_COPY
         );
     }

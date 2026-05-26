@@ -1,6 +1,7 @@
 {
   "feedback.renegade.layer": "Current layer is %s",
   "feedback.renegade.level": "Current level is %s",
+  "item.renegade.shrieking_stone": "Shrieking Stone",
   "layer.credits": "Credits",
   "layer.crescendo": "Crescendo",
   "layer.diurnal_wayfinder": "Diurnal Wayfinder",
@@ -47,5 +48,10 @@
   "level.take_to_the_skies": "Take To The Skies",
   "level.tempest": "Tempest",
   "level.the_red_rooms": "The Red Rooms",
-  "level.where_nobody_sees": "Where Nobody Sees"
+  "level.where_nobody_sees": "Where Nobody Sees",
+  "renegade.lvlannounce.clock": "YOUR CLOCK STARTS NOW",
+  "renegade.lvlannounce.spacer": " : // : ",
+  "renegade.slogan.0": "RUN FOR THE FUTURE",
+  "renegade.slogan.1": "FORSAKE THE CONGLOMERATE",
+  "renegade.slogan.2": "EMBRACE THE ANALOG"
 }

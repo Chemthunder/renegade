@@ -57,9 +57,18 @@ public class RenegadeCommand implements CommandRegistrationCallback {
                     WorldInstance instance = WorldInstance.getInstance(context.getSource().getWorld());
 
                     instance.setCurrentLevel(GameLevels.LEVELS.get(new Random().nextInt(GameLevels.LEVELS.size())));
-
                     return Command.SINGLE_SUCCESS;
                 }))
+
+                .then(literal("loadMap").then(argument("layer", LayerArgumentType.layer(commandRegistryAccess)).then(argument("level", LevelArgumentType.level(commandRegistryAccess)).executes(context -> {
+                    WorldInstance instance = WorldInstance.getInstance(context.getSource().getWorld());
+
+                    GameLayer layer = LayerArgumentType.getLayerArgument(context, "layer").getEvent();
+                    GameLevel level = LevelArgumentType.getLevelArgument(context, "level").getEvent();
+
+                    instance.loadMap(context.getSource().getPlayerOrThrow(), layer, level);
+                    return Command.SINGLE_SUCCESS;
+                }))))
         );
     }
 }
