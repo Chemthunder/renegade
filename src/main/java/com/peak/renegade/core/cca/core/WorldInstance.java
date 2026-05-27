@@ -1,9 +1,9 @@
 package com.peak.renegade.core.cca.core;
 
-import com.peak.renegade.api.game.scene.ClientScene;
-import com.peak.renegade.api.game.scene.GameScene;
 import com.peak.renegade.api.game.level.GameLayer;
 import com.peak.renegade.api.game.level.GameLevel;
+import com.peak.renegade.api.game.scene.ClientScene;
+import com.peak.renegade.api.game.scene.GameScene;
 import com.peak.renegade.core.Renegade;
 import com.peak.renegade.game.index.GameLayers;
 import com.peak.renegade.game.index.GameLevels;

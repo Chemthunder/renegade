@@ -6,6 +6,7 @@ import net.acoyt.acornlib.api.util.MiscUtils;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.storage.ReadView;
 import net.minecraft.storage.WriteView;
+import net.minecraft.text.Text;
 import org.jetbrains.annotations.Nullable;
 import org.ladysnake.cca.api.v3.component.ComponentKey;
 import org.ladysnake.cca.api.v3.component.sync.AutoSyncedComponent;
@@ -34,10 +35,11 @@ public class PlayerInstance implements AutoSyncedComponent, CommonTickingCompone
     }
 
     public void tick() {
-        if (state != PlayerState.LOCKED) {
+        if (this.getState() == PlayerState.RUNNING) {
             if (this.countdown > 0) {
                 this.countdown--;
-                if (this.countdown == 0) {
+                player.sendMessage(Text.literal(countdown + ":"), true);
+                if ((this.countdown == 0) || (this.countdown % 20 == 0)) {
                     this.sync();
                 }
             }
@@ -47,7 +49,7 @@ public class PlayerInstance implements AutoSyncedComponent, CommonTickingCompone
     public void readData(ReadView data) {
         this.active = data.getBoolean("Active", false);
 
-        this.state = data.read("State", PlayerState.CODEC).orElse(null);
+        this.state = data.read("State", PlayerState.CODEC).orElse(PlayerState.RUNNING);
 
         this.maxCountdown = data.getInt("MaxCountdown", (45 * 20));
         this.countdown = data.getInt("Countdown", 0);
@@ -95,6 +97,11 @@ public class PlayerInstance implements AutoSyncedComponent, CommonTickingCompone
 
     public void setCountdown(int countdown) {
         this.countdown = countdown;
+        this.sync();
+    }
+
+    public void beginCountdown() {
+        this.countdown = this.maxCountdown;
         this.sync();
     }
 

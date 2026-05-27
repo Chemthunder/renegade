@@ -1,6 +1,11 @@
 {
+  "block.renegade.gateway": "Gateway",
+  "block.renegade.gateway.desc_0": "Upon interaction by a game player,",
+  "block.renegade.gateway.desc_1": "their countdown will be reset to the max.",
   "feedback.renegade.layer": "Current layer is %s",
   "feedback.renegade.level": "Current level is %s",
+  "item.renegade.gateway": "Gateway",
+  "item.renegade.revolver": "Revolver",
   "item.renegade.shrieking_stone": "Shrieking Stone",
   "layer.credits": "Credits",
   "layer.crescendo": "Crescendo",
@@ -53,5 +58,5 @@
   "renegade.lvlannounce.spacer": " : // : ",
   "renegade.slogan.0": "RUN FOR THE FUTURE",
   "renegade.slogan.1": "FORSAKE THE CONGLOMERATE",
-  "renegade.slogan.2": "EMBRACE THE ANALOG"
+  "renegade.slogan.2": "EMBRACE THE ADRENALINE"
 }

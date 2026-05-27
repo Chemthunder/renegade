@@ -19,6 +19,6 @@ public enum PlayerState implements StringIdentifiable {
     }
 
     public String asString() {
-        return "";
+        return id;
     }
 }

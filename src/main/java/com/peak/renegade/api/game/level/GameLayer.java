@@ -3,8 +3,6 @@ package com.peak.renegade.api.game.level;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
-import java.util.List;
-
 /**
  * @author Chemthunder
  */

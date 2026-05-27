@@ -15,9 +15,10 @@
   "client": [
     "client.BarMixin",
     "client.ExperienceBarMixin",
-    "client.PlayerEntityRendererMixin",
     "client.InGameHudMixin",
     "client.MinecraftClientMixin",
-    "client.TooltipBackgroundRendererMixin"
+    "client.PlayerEntityRendererMixin",
+    "client.TooltipBackgroundRendererMixin",
+    "client.WindowMixin"
   ]
 }

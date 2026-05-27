@@ -3,6 +3,7 @@ package com.peak.renegade.mixin;
 import com.mojang.brigadier.arguments.ArgumentType;
 import com.peak.renegade.core.utility.command.LayerArgumentType;
 import com.peak.renegade.core.utility.command.LevelArgumentType;
+import com.peak.renegade.core.utility.command.PlayerStateArgumentType;
 import net.minecraft.command.argument.ArgumentTypes;
 import net.minecraft.command.argument.serialize.ArgumentSerializer;
 import net.minecraft.command.argument.serialize.ConstantArgumentSerializer;
@@ -27,5 +28,7 @@ public abstract class ArgumentTypesMixin {
     private static void renegade$addArguments(Registry<ArgumentSerializer<?, ?>> registry, CallbackInfoReturnable<ArgumentSerializer<?, ?>> cir) {
         register(registry, "renegade:layer", LayerArgumentType.class, ConstantArgumentSerializer.of(LayerArgumentType::layer));
         register(registry, "renegade:level", LevelArgumentType.class, ConstantArgumentSerializer.of(LevelArgumentType::level));
+
+        register(registry, "renegade:playerstate", PlayerStateArgumentType.class, ConstantArgumentSerializer.of(PlayerStateArgumentType::state));
     }
 }

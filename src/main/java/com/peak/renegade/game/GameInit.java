@@ -1,6 +1,6 @@
 package com.peak.renegade.game;
 
-import com.peak.renegade.api.game.level.GameLayer;
+import com.peak.renegade.game.index.GameBlocks;
 import com.peak.renegade.game.index.GameItems;
 import com.peak.renegade.game.index.GameLayers;
 import com.peak.renegade.game.index.GameLevels;
@@ -15,5 +15,6 @@ public class GameInit {
         GameLevels.index();
 
         GameItems.index();
+        GameBlocks.index();
     }
 }

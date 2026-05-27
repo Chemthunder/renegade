@@ -1,6 +1,5 @@
 package com.peak.renegade.core.utility.command;
 
-import com.peak.renegade.api.game.level.GameLayer;
 import com.peak.renegade.api.game.level.GameLevel;
 import net.minecraft.registry.entry.RegistryEntry;
 

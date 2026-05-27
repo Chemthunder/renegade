@@ -1,6 +1,6 @@
 package com.peak.renegade.data.provider.resources;
 
-import com.peak.renegade.game.GameInit;
+import com.peak.renegade.game.index.GameBlocks;
 import com.peak.renegade.game.index.GameItems;
 import com.peak.renegade.game.index.GameLayers;
 import com.peak.renegade.game.index.GameLevels;
@@ -24,6 +24,7 @@ public class RenegadeLangGen extends FabricLanguageProvider {
         GameLayers.pairWithLang(translationBuilder);
 
         GameItems.ITEMS.registerLang(wrapperLookup, translationBuilder);
+        GameBlocks.BLOCKS.registerLang(wrapperLookup, translationBuilder);
 
         translationBuilder.add("feedback.renegade.layer", "Current layer is %s");
         translationBuilder.add("feedback.renegade.level", "Current level is %s");
@@ -33,7 +34,10 @@ public class RenegadeLangGen extends FabricLanguageProvider {
 
         translationBuilder.add("renegade.slogan.0", "RUN FOR THE FUTURE");
         translationBuilder.add("renegade.slogan.1", "FORSAKE THE CONGLOMERATE");
-        translationBuilder.add("renegade.slogan.2", "EMBRACE THE ANALOG");
+        translationBuilder.add("renegade.slogan.2", "EMBRACE THE ADRENALINE");
+
+        translationBuilder.add("block.renegade.gateway.desc_0", "Upon interaction by a game player,");
+        translationBuilder.add("block.renegade.gateway.desc_1", "their countdown will be reset to the max.");
     }
 
     public @NotNull String getName() {

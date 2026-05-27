@@ -1,0 +1,13 @@
+{
+  "has_skylight": true,
+  "has_ceiling": false,
+  "coordinate_scale": 1,
+  "ambient_light": 1,
+  "logical_height": 16,
+  "skybox": "none",
+  "infiniburn": "#minecraft:acacia_logs",
+  "min_y": -320,
+  "height": 320,
+  "monster_spawn_light_level": 15,
+  "monster_spawn_block_light_limit": 15
+}

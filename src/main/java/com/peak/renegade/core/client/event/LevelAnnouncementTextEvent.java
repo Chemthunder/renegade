@@ -4,6 +4,7 @@ import com.peak.renegade.api.game.scene.ClientScene;
 import com.peak.renegade.core.cca.core.HudInstance;
 import com.peak.renegade.core.cca.core.PlayerInstance;
 import com.peak.renegade.core.cca.core.WorldInstance;
+import com.peak.renegade.core.networking.c2s.BeginCountdownPayload;
 import com.peak.renegade.game.index.GameLayers;
 import com.peak.renegade.game.index.GameLevels;
 import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElement;
@@ -89,7 +90,7 @@ public class LevelAnnouncementTextEvent implements HudElement {
 
             if (age >= 250) {
                 instance.end(ClientScene.PLAYING);
-                player.setCountdown(player.getMaxCountdown());
+                BeginCountdownPayload.send();
             }
         }
     }

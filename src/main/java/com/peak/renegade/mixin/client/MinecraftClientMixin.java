@@ -1,11 +1,7 @@
 package com.peak.renegade.mixin.client;
 
-import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
-import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.peak.renegade.core.RenegadeClient;
-import net.acoyt.acornlib.impl.AcornLibClient;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.option.Perspective;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;

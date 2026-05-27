@@ -3,11 +3,14 @@ package com.peak.renegade.mixin.client;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.mojang.blaze3d.pipeline.RenderPipeline;
+import com.peak.renegade.api.game.scene.ClientScene;
 import com.peak.renegade.core.RenegadeClient;
+import com.peak.renegade.core.cca.core.HudInstance;
 import com.peak.renegade.core.manager.RenegadeCrosshairFetcher;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.hud.InGameHud;
+import net.minecraft.client.render.RenderTickCounter;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Mixin;
@@ -46,8 +49,22 @@ public abstract class InGameHudMixin {
         }
     }
 
+    @Inject(method = "renderCrosshair", at = @At(value = "HEAD"), cancellable = true)
+    private void renegade$noCrosshairWhileLevelAnnounce(DrawContext context, RenderTickCounter tickCounter, CallbackInfo ci) {
+        if (HudInstance.getInstance(MinecraftClient.getInstance().player).getScene() == ClientScene.LEVEL_ANNOUNCE) {
+            ci.cancel();
+        }
+    }
+
     @Inject(method = "renderFood", at = @At(value = "HEAD"), cancellable = true)
     private void renegade$fuckAppleSkin(DrawContext context, PlayerEntity player, int top, int right, CallbackInfo ci) {
+        if (RenegadeClient.isGameMember()) {
+            ci.cancel();
+        }
+    }
+
+    @Inject(method = "renderArmor", at = @At(value = "HEAD"), cancellable = true)
+    private static void renegade$noArmor(DrawContext context, PlayerEntity player, int y, int i, int healthBarLines, int x, CallbackInfo ci) {
         if (RenegadeClient.isGameMember()) {
             ci.cancel();
         }

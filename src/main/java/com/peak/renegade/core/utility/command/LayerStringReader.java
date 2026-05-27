@@ -10,12 +10,6 @@ import com.mojang.serialization.DynamicOps;
 import com.peak.renegade.api.game.level.GameLayer;
 import com.peak.renegade.core.index.RenegadeRegistries;
 import net.minecraft.command.CommandSource;
-import net.minecraft.command.argument.DimensionArgumentType;
-import net.minecraft.command.argument.ItemStackArgumentType;
-import net.minecraft.command.argument.ItemStringReader;
-import net.minecraft.component.ComponentChanges;
-import net.minecraft.component.ComponentType;
-import net.minecraft.item.Item;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtOps;
 import net.minecraft.registry.RegistryKey;
@@ -53,9 +47,6 @@ public class LayerStringReader {
                 mutableObject.setValue(item);
             }
         });
-
-
-
         RegistryEntry<GameLayer> registryEntry = Objects.requireNonNull(mutableObject.getValue(), "Parser gave no item");
         return new LayerStringReader.LayerResult(registryEntry);
     }
@@ -69,8 +60,6 @@ public class LayerStringReader {
             reader.setCursor(i);
             throw var5;
         }
-
-        //
     }
 
     public CompletableFuture<Suggestions> getSuggestions(SuggestionsBuilder builder) {

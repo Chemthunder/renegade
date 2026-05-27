@@ -2,12 +2,17 @@ package com.peak.renegade.core;
 
 import com.peak.renegade.core.client.event.CountdownEvent;
 import com.peak.renegade.core.client.event.LevelAnnouncementTextEvent;
+import com.peak.renegade.core.client.item.RevolverTintSource;
+import com.peak.renegade.core.index.RenegadeNetworking;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.ColorResolverRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.hud.VanillaHudElements;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.render.item.tint.TintSourceTypes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,6 +39,8 @@ public class RenegadeClient implements ClientModInitializer {
                 Renegade.id("countdown"),
                 new CountdownEvent()
         );
+
+        TintSourceTypes.ID_MAPPER.put(Renegade.id("revolver_color"), RevolverTintSource.CODEC);
     }
 
     public static boolean isGameMember() {
