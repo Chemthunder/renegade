@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "renegade:block/enemy_spawner"
+    }
+  }
+}
