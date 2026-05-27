@@ -1,9 +1,7 @@
 package com.peak.renegade.core;
 
 import com.peak.renegade.core.command.RenegadeCommand;
-import com.peak.renegade.core.index.RenegadeItemGroups;
-import com.peak.renegade.core.index.RenegadeNetworking;
-import com.peak.renegade.core.index.RenegadeRegistries;
+import com.peak.renegade.core.index.*;
 import com.peak.renegade.game.GameInit;
 import net.acoyt.acornlib.api.ALib;
 import net.fabricmc.api.ModInitializer;
@@ -20,10 +18,14 @@ public class Renegade implements ModInitializer {
 
 	public void onInitialize() {
         RenegadeRegistries.init();
+        RenegadeItemGroups.init();
+        RenegadeComponentTypes.init();
+        RenegadeBlockEntityTypes.init();
+        RenegadeItems.init();
+        RenegadeBlocks.init();
 
         RenegadeNetworking.registerTypes();
         RenegadeNetworking.registerC2SPackets();
-        RenegadeItemGroups.init();
 
         CommandRegistrationCallback.EVENT.register(new RenegadeCommand());
 

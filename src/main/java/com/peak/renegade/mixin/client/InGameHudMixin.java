@@ -6,6 +6,7 @@ import com.mojang.blaze3d.pipeline.RenderPipeline;
 import com.peak.renegade.api.game.scene.ClientScene;
 import com.peak.renegade.core.RenegadeClient;
 import com.peak.renegade.core.cca.core.HudInstance;
+import com.peak.renegade.core.manager.RenegadeContext;
 import com.peak.renegade.core.manager.RenegadeCrosshairFetcher;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
@@ -13,6 +14,7 @@ import net.minecraft.client.gui.hud.InGameHud;
 import net.minecraft.client.render.RenderTickCounter;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.hit.HitResult;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -53,6 +55,17 @@ public abstract class InGameHudMixin {
     private void renegade$noCrosshairWhileLevelAnnounce(DrawContext context, RenderTickCounter tickCounter, CallbackInfo ci) {
         if (HudInstance.getInstance(MinecraftClient.getInstance().player).getScene() == ClientScene.LEVEL_ANNOUNCE) {
             ci.cancel();
+        }
+    }
+
+    @Inject(method = "renderCrosshair", at = @At(value = "HEAD"))
+    private void renegade$indicatorWhenFacingEntity(DrawContext context, RenderTickCounter tickCounter, CallbackInfo ci) {
+        MinecraftClient client = MinecraftClient.getInstance();
+        if (client.player == null) return;
+        if (client.targetedEntity != null) {
+            if (!client.player.isCreative()) {
+                RenegadeContext.renderTargetIndicator(context, client.targetedEntity);
+            }
         }
     }
 

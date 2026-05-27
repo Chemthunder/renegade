@@ -1,7 +1,8 @@
 package com.peak.renegade.data.provider.resources;
 
-import com.peak.renegade.game.index.GameBlocks;
-import com.peak.renegade.game.index.GameItems;
+import com.peak.renegade.core.index.RenegadeItems;
+import com.peak.renegade.core.index.tag.RenegadeItemTags;
+import com.peak.renegade.core.index.RenegadeBlocks;
 import com.peak.renegade.game.index.GameLayers;
 import com.peak.renegade.game.index.GameLevels;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -23,8 +24,10 @@ public class RenegadeLangGen extends FabricLanguageProvider {
         GameLevels.pairWithLang(translationBuilder);
         GameLayers.pairWithLang(translationBuilder);
 
-        GameItems.ITEMS.registerLang(wrapperLookup, translationBuilder);
-        GameBlocks.BLOCKS.registerLang(wrapperLookup, translationBuilder);
+        RenegadeItems.ITEMS.registerLang(wrapperLookup, translationBuilder);
+        RenegadeBlocks.BLOCKS.registerLang(wrapperLookup, translationBuilder);
+
+        RenegadeItemTags.TAG.registerLang(wrapperLookup, translationBuilder);
 
         translationBuilder.add("feedback.renegade.layer", "Current layer is %s");
         translationBuilder.add("feedback.renegade.level", "Current level is %s");
@@ -38,6 +41,8 @@ public class RenegadeLangGen extends FabricLanguageProvider {
 
         translationBuilder.add("block.renegade.gateway.desc_0", "Upon interaction by a game player,");
         translationBuilder.add("block.renegade.gateway.desc_1", "their countdown will be reset to the max.");
+
+        translationBuilder.add("block.renegade.enemy_spawner.enemies", "Spawns %s enemies!");
     }
 
     public @NotNull String getName() {

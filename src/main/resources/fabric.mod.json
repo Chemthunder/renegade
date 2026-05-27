@@ -43,7 +43,8 @@
     "cardinal-components": [
       "renegade:player",
       "renegade:world",
-      "renegade:client"
+      "renegade:client",
+      "renegade:config"
     ]
   }
 }

@@ -1,8 +1,12 @@
 // 1.21.11	-999999999-01-01T00:00:00	Renegade/Model Definitions
+48c3d6ffbe8451485645d2ea9bc3e0812ff164c3 assets/renegade/blockstates/enemy_spawner.json
 2290188d971c97ff94ae261b36aebfb3b06b7986 assets/renegade/blockstates/gateway.json
+482557704827346bb828fcaca0e54f0ace292a03 assets/renegade/items/enemy_spawner.json
 ba67e8f08a975b1f1ed1ce73085f3b1b847a676f assets/renegade/items/gateway.json
+14c4de3f221dc19c8c5c65813aff3ed6a4a9dff4 assets/renegade/items/knife.json
 70b25544806ef584b2371eb022c20fc103053268 assets/renegade/items/revolver.json
 fc988ea9763d9ae800e7904b881b9f85d7c573be assets/renegade/items/shrieking_stone.json
+4b65648c92d1e4e425531490e1468156ac030b21 assets/renegade/models/item/enemy_spawner.json
 0c1c33b69af2d7e3ac123001c93076d24f727f26 assets/renegade/models/item/gateway.json
 e7ba4565a64a8bd82749a488b03a8c7fff457fec assets/renegade/models/item/revolver.json
 e16019b316c0eeacd13e460b79ea3eb27b91e497 assets/renegade/models/item/shrieking_stone.json

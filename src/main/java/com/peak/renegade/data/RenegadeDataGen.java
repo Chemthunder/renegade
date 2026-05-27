@@ -4,6 +4,7 @@ import com.peak.omnia.api.registration.DataInitializer;
 import com.peak.renegade.core.Renegade;
 import com.peak.renegade.data.provider.resources.RenegadeLangGen;
 import com.peak.renegade.data.provider.resources.RenegadeModelGen;
+import com.peak.renegade.data.provider.tag.RenegadeItemTagGen;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -25,6 +26,8 @@ public class RenegadeDataGen implements DataGeneratorEntrypoint {
 
         pack.addProvider(RenegadeLangGen::new);
         pack.addProvider(RenegadeModelGen::new);
+
+        pack.addProvider(RenegadeItemTagGen::new);
 	}
 
     public void buildRegistry(RegistryBuilder registryBuilder) {

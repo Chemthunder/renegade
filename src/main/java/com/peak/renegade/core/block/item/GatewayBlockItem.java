@@ -1,7 +1,6 @@
 package com.peak.renegade.core.block.item;
 
-import com.peak.renegade.game.index.GameBlocks;
-import net.minecraft.block.Block;
+import com.peak.renegade.core.index.RenegadeBlocks;
 import net.minecraft.component.type.TooltipDisplayComponent;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
@@ -17,7 +16,7 @@ import java.util.function.Consumer;
 @SuppressWarnings("deprecation")
 public class GatewayBlockItem extends BlockItem {
     public GatewayBlockItem(Settings settings) {
-        super(GameBlocks.GATEWAY, settings);
+        super(RenegadeBlocks.GATEWAY, settings);
     }
 
     public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {

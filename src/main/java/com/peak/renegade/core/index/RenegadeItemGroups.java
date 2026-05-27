@@ -2,7 +2,6 @@ package com.peak.renegade.core.index;
 
 import com.peak.renegade.core.Renegade;
 import com.peak.renegade.core.index.util.RenegadeColors;
-import com.peak.renegade.game.index.GameItems;
 import net.acoyt.acornlib.api.registrants.ItemGroupRegistrant;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
@@ -21,8 +20,8 @@ public interface RenegadeItemGroups {
 
     RegistryKey<ItemGroup> MAIN_KEY = RegistryKey.of(RegistryKeys.ITEM_GROUP, Renegade.id(Renegade.MOD_ID));
     ItemGroup MAIN_GROUP = GROUPS.register(MAIN_KEY.getValue().getPath(), FabricItemGroup.builder()
-            .icon(() -> new ItemStack(GameItems.SHRIEKING_STONE))
-            .displayName(Text.translatable("itemGroup." + Renegade.MOD_ID).withColor(RenegadeColors.END_COLOR))
+            .icon(() -> new ItemStack(RenegadeItems.SHRIEKING_STONE))
+            .displayName(Text.translatable("itemGroup." + Renegade.MOD_ID).withColor(RenegadeColors.VARIATION_ONE_END))
             .build());
 
     static void init() {
@@ -30,6 +29,6 @@ public interface RenegadeItemGroups {
     }
 
     private static void buildItemGroup(FabricItemGroupEntries entries) {
-        GameItems.ITEMS.toRegister.forEach(entries::add);
+        RenegadeItems.ITEMS.toRegister.forEach(entries::add);
     }
 }
